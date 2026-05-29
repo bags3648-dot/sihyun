@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시현의 웹 공간</title>
+    <!-- 구글 폰트 및 아이콘 로드 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* 기본 스타일 초기화 및 테마 설정 */
+        :root {
+            --bg-color: #f1f8f5;       /* 이미지 느낌의 연한 민트빛 배경 */
+            --primary-color: #2e7d32;  /* 메인 딥 그린 */
+            --accent-color: #81c784;   /* 포인트 연그린 */
+            --text-color: #2c3e50;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* 헤더 디자인 */
+        header {
+            background-color: var(--card-bg);
+            padding: 2rem 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+
+        /* 메인 컨테이너 그리드 배치 */
+        main {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* 섹션 카드 스타일 */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            transition: transform 0.3s ease;
+            border-top: 4px solid var(--accent-color);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h2 {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 0.5rem;
+        }
+
+        /* 1. 날씨 섹션 스타일 */
+        .weather-info {
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        .weather-icon {
+            font-size: 3.5rem;
+            color: #f39c12;
+            margin-bottom: 0.5rem;
+        }
+
+        .temp {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #34495e;
+        }
+
+        /* 리스트 아이템 스타일 (이슈 및 뉴스용) */
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #f9f9f9;
+            font-size: 0.95rem;
+        }
+
+        .info-list li a {
+            color: var(--text-color);
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.2s;
+        }
+
+        .info-list li a:hover {
+            color: var(--primary-color);
+        }
+
+        .date {
+            font-size: 0.8rem;
+            color: #95a5a6;
+        }
+
+        /* 4. 통계 테이블 스타일 */
+        .stat-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .stat-table th, .stat-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .stat-table th {
+            background-color: #f9fbf9;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* 푸터 스타일 */
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            color: #bdc3c7;
+            font-size: 0.85rem;
+        }
+
+        /* 반응형 대응 (화면이 작아질 때) */
+        @media (max-width: 768px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 헤더 영역 -->
+    <header>
+        <div>
+            <h1>시현의 데일리 대시보드</h1>
+            <p>관심 있는 정보와 로컬 뉴스를 기록하는 반응형 공간</p>
+        </div>
+        <div style="font-size: 1.2rem; color: var(--primary-color);">
+            <i class="fa-solid fa-leaf"></i>
+        </div>
+    </header>
+
+    <!-- 메인 컨텐츠 영역 -->
+    <main>
+        
+        <!-- 1. 날씨 정보 섹션 -->
+        <section class="card">
+            <h2><i class="fa-solid fa-cloud-sun"></i> 오늘의 날씨</h2>
+            <div class="weather-info">
+                <div class="weather-icon"><i class="fa-solid fa-sun"></i></div>
+                <div class="temp">24°C</div>
+                <p style="color: #7f8c8d; margin-top: 0.5rem;">부산광역시 남구 대연동</p>
+                <p style="font-size: 0.85rem; color: #95a5a6; margin-top: 0.2rem;">습도 45% | 바람 잔잔함</p>
+            </div>
+        </section>
+
+        <!-- 2. 부산의 이슈 섹션 -->
+        <section class="card">
+            <h2><i class="fa-solid fa-location-dot"></i> 부산 지금 이 시각</h2>
+            <ul class="info-list">
+                <li>
+                    <a href="#">
+                        <span>부산 수영구, 올여름 드론쇼 라인업 확대 공개</span>
+                        <span class="date">오늘</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span>부산항 북항 재개발 2단계 부지 착공 소식</span>
+                        <span class="date">어제</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span>2026 부산 국제 모빌리티쇼 개최 일정 확정</span>
+                        <span class="date">3일 전</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <!-- 3. 부경대 관련 뉴스 섹션 -->
+        <section class="card">
+            <h2><i class="fa-solid fa-graduation-cap"></i> 부경대학교 뉴스</h2>
+            <ul class="info-list">
+                <li>
+                    <a href="#">
+                        <span>부경대, 지역 사회 연계 산학협력 페스티벌 개최</span>
+                        <span class="date">05.28</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span>학술정보관(도서관) 환경 개선 및 리모델링 완료</span>
+                        <span class="date">05.25</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span>대연캠퍼스 잔디광장 가을 축제 기획단 모집 시작</span>
+                        <span class="date">05.22</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <!-- 4. 사회복지 관련 통계 섹션 -->
+        <section class="card">
+            <h2><i class="fa-solid fa-chart-pie"></i> 사회복지 주요 통계</h2>
+            <table class="stat-table">
+                <thead>
+                    <tr>
+                        <th>지표 항목</th>
+                        <th>수치</th>
+                        <th>대비 변동</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>지역사회 돌봄 만족도</td>
+                        <td>84.2%</td>
+                        <td style="color: #e74c3c;"><i class="fa-solid fa-caret-up"></i> 2.1%</td>
+                    </tr>
+                    <tr>
+                        <td>공공 의료 서비스 인프라</td>
+                        <td>1,240개소</td>
+                        <td style="color: #3498db;"><i class="fa-solid fa-caret-up"></i> 14개소</td>
+                    </tr>
+                    <tr>
+                        <td>복지 예산 집행 효율성</td>
+                        <td>91.5%</td>
+                        <td style="color: #95a5a6;">-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <!-- 푸터 영역 -->
+    <footer>
+        <p>© 2026 sihyun. Powered by GitHub Pages.</p>
+    </footer>
+
+</body>
+</html>
