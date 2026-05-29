@@ -9,12 +9,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* 기본 스타일 및 현이 맞춤형 웜톤 컬러 테마 */
         :root {
-            --bg-color: #fffaf0;       /* 따뜻한 크림/베이지 톤 배경 */
-            --primary-color: #d35400;  /* 진한 치즈 노란색/오렌지 포인트 */
-            --accent-color: #f39c12;   /* 밝은 노란색 */
-            --text-color: #4a3728;     /* 부드러운 초콜릿빛 브라운 텍스트 */
+            --bg-color: #fffaf0;
+            --primary-color: #d35400;
+            --accent-color: #f39c12;
+            --text-color: #4a3728;
             --card-bg: #ffffff;
         }
 
@@ -25,7 +24,7 @@
         }
 
         html {
-            scroll-behavior: smooth; /* 스크롤 다운 버튼 클릭 시 부드럽게 이동 */
+            scroll-behavior: smooth;
         }
 
         body {
@@ -35,10 +34,9 @@
             line-height: 1.6;
         }
 
-        /* 1. 상단 풀스크린 히어로 섹션 (현이 사진 강조) */
         .hero-section {
             width: 100%;
-            height: 100vh; /* 브라우저 화면 높이를 100% 다 채움 */
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -50,7 +48,6 @@
             padding: 2rem;
         }
 
-        /* 사진을 감싸는 액자 스타일 디자인 */
         .hero-image-container {
             width: 100%;
             max-width: 450px;
@@ -84,7 +81,6 @@
             font-weight: 500;
         }
 
-        /* 아래로 스크롤 유도 디자인 (위아래로 움직이는 애니메이션) */
         .scroll-down-btn {
             position: absolute;
             bottom: 2.5rem;
@@ -113,14 +109,12 @@
             margin-top: 0.3rem;
         }
 
-        /* 2. 메인 콘텐츠 영역 (스크롤 다운 시 본격적으로 나타남) */
         main {
             max-width: 1200px;
             margin: 0 auto;
             padding: 5rem 1.5rem 3rem 1.5rem;
         }
 
-        /* 프로필 섹션 배치 구조 */
         .profile-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -134,7 +128,6 @@
             }
         }
 
-        /* 대시보드 카드 공통 스타일 */
         .card {
             background-color: var(--card-bg);
             border-radius: 20px;
@@ -155,7 +148,6 @@
             padding-bottom: 0.4rem;
         }
 
-        /* 상세 정보 템플릿 */
         .profile-fact {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -183,14 +175,39 @@
             margin-top: 0.2rem;
         }
 
-        /* 하단 4대 정보 대시보드 그리드 배치 */
+        .creator-box {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .creator-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #faebd7;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .creator-info h3 {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            margin-bottom: 0.2rem;
+        }
+
+        .creator-info p {
+            font-size: 0.85rem;
+            color: #8e7a6b;
+        }
+
         .dashboard-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
 
-        /* 1. 날씨 정보 커스텀 */
         .weather-info {
             text-align: center;
             padding: 0.5rem 0;
@@ -208,7 +225,6 @@
             color: var(--text-color);
         }
 
-        /* 뉴스/이슈 리스트 스타일 */
         .info-list {
             list-style: none;
         }
@@ -237,7 +253,6 @@
             color: #bfaaa0;
         }
 
-        /* 사회복지 데이터 통계 테이블 */
         .stat-table {
             width: 100%;
             border-collapse: collapse;
@@ -255,7 +270,6 @@
             color: var(--primary-color);
         }
 
-        /* 푸터 영역 */
         footer {
             text-align: center;
             padding: 4rem 0 3rem 0;
@@ -266,12 +280,9 @@
 </head>
 <body>
 
-    <!-- 1. 상단 섹션: 첫 접속 시 화면을 꽉 채우는 '현이 스크롤 다운' 시작점 -->
     <div class="hero-section">
         <div class="hero-image-container">
             <img src="hyun.jpg" alt="치즈냥이 현이 사진" onerror="this.style.display='none'; document.getElementById('hero-placeholder').style.display='flex';">
-            
-            <!-- 사진이 없거나 파일명이 매칭되지 않을 때 자동 노출되는 안내판 -->
             <div id="hero-placeholder" style="display: none; width: 100%; height: 100%; flex-direction: column; justify-content: center; align-items: center; background-color: #fffcf7; padding: 2rem; text-align: center;">
                 <i class="fa-solid fa-cat" style="font-size: 4rem; color: var(--accent-color); margin-bottom: 1rem;"></i>
                 <p style="font-weight: bold; color: var(--primary-color); font-size: 1rem;">hyun.jpg 파일을 찾고 있어요!</p>
@@ -281,17 +292,14 @@
         <h1>고양이 '현'이의 아늑한 공간</h1>
         <p>소심한 척하지만 사실은 관심이 필요한 치즈냥이의 대시보드</p>
         
-        <!-- 아래로 스크롤을 부드럽게 유도하는 버튼 -->
         <a href="#content" class="scroll-down-btn">
             <span>스크롤 다운</span>
             <i class="fa-solid fa-chevron-down"></i>
         </a>
     </div>
 
-    <!-- 2. 본문 영역: 스크롤을 아래로 내리면 펼쳐지는 콘텐츠 공간 -->
     <main id="content">
         
-        <!-- 상단 가로 정렬: 고양이 성격 및 핵심 프로필 -->
         <div class="profile-container">
             <section class="card">
                 <h2><i class="fa-solid fa-id-card"></i> 현이의 프로필</h2>
@@ -316,21 +324,20 @@
             </section>
 
             <section class="card">
-                <h2><i class="fa-solid fa-heart"></i> 성격 및 매력 포인트</h2>
-                <div class="fact-item" style="margin-bottom: 0.8rem; border-left-color: #e67e22;">
-                    <div class="label">대표 성격</div>
-                    <div class="value" style="color: #e67e22;">"소심한 척하는 우주 최강 관종"</div>
+                <h2><i class="fa-solid fa-user-gear"></i> 만든 사람 정보</h2>
+                <div class="creator-box">
+                    <img src="profile.jpg" alt="제작자 박시현 증명사진" class="creator-avatar" onerror="this.src='https://via.placeholder.com/80?text=Sihyun';">
+                    <div class="creator-info">
+                        <h3>박시현 (Sihyun Park)</h3>
+                        <p style="margin-bottom: 0.3rem; font-weight: 500; color: var(--primary-color);">대시보드 기획 및 개발자</p>
+                        <p>우주최강 치즈냥이 '현이'의 집사이자, 데이터를 아늑하고 단정하게 시각화하는 것을 좋아하는 크리에이터입니다.</p>
+                    </div>
                 </div>
-                <p style="font-size: 0.95rem; color: #6b5344; padding: 0.2rem;">
-                    처음에는 구석에서 조용히 눈치를 보거나 낯을 가리는 척하지만, 집사가 다른 일을 하거나 무관심해지면 어느새 슬그머니 다가와 근처에서 배를 뒤집고 누워 시선을 독점하려는 영리하고 치명적인 밀당 냥이입니다.
-                </p>
             </section>
         </div>
 
-        <!-- 하단: 지정된 4가지 핵심 요소를 담은 대시보드 구조 -->
         <div class="dashboard-grid">
             
-            <!-- 1. 실시간 날씨 정보 -->
             <section class="card">
                 <h2><i class="fa-solid fa-cloud-sun"></i> 오늘의 날씨</h2>
                 <div class="weather-info">
@@ -341,7 +348,6 @@
                 </div>
             </section>
 
-            <!-- 2. 로컬 부산 이슈 -->
             <section class="card">
                 <h2><i class="fa-solid fa-location-dot"></i> 부산 지금 이 시각</h2>
                 <ul class="info-list">
@@ -366,7 +372,6 @@
                 </ul>
             </section>
 
-            <!-- 3. 학교 주요 뉴스 -->
             <section class="card">
                 <h2><i class="fa-solid fa-graduation-cap"></i> 부경대학교 뉴스</h2>
                 <ul class="info-list">
@@ -391,7 +396,6 @@
                 </ul>
             </section>
 
-            <!-- 4. 사회복지 맞춤형 통계표 -->
             <section class="card">
                 <h2><i class="fa-solid fa-chart-pie"></i> 사회복지 주요 통계</h2>
                 <table class="stat-table">
@@ -426,7 +430,6 @@
 
     </main>
 
-    <!-- 바닥글 -->
     <footer>
         <p>© 2026 시현 & 고양이 현이. Powered by GitHub Pages.</p>
     </footer>
