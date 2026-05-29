@@ -100,7 +100,7 @@
 
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
-            40% { transform: translate(-50%, -10px); }
+            40% { transform: translate(-50., -10px); }
             60% { transform: translate(-50%, -5px); }
         }
 
@@ -253,23 +253,6 @@
             color: #bfaaa0;
         }
 
-        .stat-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9rem;
-        }
-
-        .stat-table th, .stat-table td {
-            padding: 0.7rem;
-            text-align: left;
-            border-bottom: 1px solid #f5ece4;
-        }
-
-        .stat-table th {
-            background-color: #fffcf7;
-            color: var(--primary-color);
-        }
-
         footer {
             text-align: center;
             padding: 4rem 0 3rem 0;
@@ -397,33 +380,40 @@
             </section>
 
             <section class="card">
-                <h2><i class="fa-solid fa-chart-pie"></i> 사회복지 주요 통계</h2>
-                <table class="stat-table">
-                    <thead>
-                        <tr>
-                            <th>지표 항목</th>
-                            <th>수치</th>
-                            <th>전월 대비</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>지역사회 돌봄 만족도</td>
-                            <td>84.2%</td>
-                            <td style="color: #e74c3c;"><i class="fa-solid fa-caret-up"></i> 2.1%</td>
-                        </tr>
-                        <tr>
-                            <td>공공 의료 인프라 확충</td>
-                            <td>1,240개소</td>
-                            <td style="color: #3498db;"><i class="fa-solid fa-caret-up"></i> 14개소</td>
-                        </tr>
-                        <tr>
-                            <td>복지 예산 집행 효율성</td>
-                            <td>91.5%</td>
-                            <td style="color: #95a5a6;">-</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <h2><i class="fa-solid fa-chart-bar"></i> 현이의 실시간 핵심 지표</h2>
+                <div style="margin-top: 1.5rem;">
+                    
+                    <div style="margin-bottom: 1.2rem;">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 0.3rem;">
+                            <span style="font-weight: bold;">💤 하루 평균 낮잠 효율성</span>
+                            <span style="color: var(--primary-color); font-weight: bold;">98.5% <span style="font-size: 0.8rem; color: #e74c3c;">▲ 0.5%</span></span>
+                        </div>
+                        <div style="width: 100%; height: 12px; background-color: #f5ece4; border-radius: 6px; overflow: hidden;">
+                            <div style="width: 98.5%; height: 100%; background-color: var(--accent-color); border-radius: 6px;"></div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 1.2rem;">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 0.3rem;">
+                            <span style="font-weight: bold;">⚡ 간식 캔 오픈 시 반응 속도</span>
+                            <span style="color: var(--primary-color); font-weight: bold;">0.42초 <span style="font-size: 0.8rem; color: #3498db;">▼ 0.05초</span></span>
+                        </div>
+                        <div style="width: 100%; height: 12px; background-color: #f5ece4; border-radius: 6px; overflow: hidden;">
+                            <div style="width: 84%; height: 100%; background-color: #e67e22; border-radius: 6px;"></div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 0.5rem;">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 0.3rem;">
+                            <span style="font-weight: bold;">👑 집사 부려먹기 성공률</span>
+                            <span style="color: var(--primary-color); font-weight: bold;">100% <span style="font-size: 0.8rem; color: #95a5a6;">유지</span></span>
+                        </div>
+                        <div style="width: 100%; height: 12px; background-color: #f5ece4; border-radius: 6px; overflow: hidden;">
+                            <div style="width: 100%; height: 100%; background-color: var(--primary-color); border-radius: 6px;"></div>
+                        </div>
+                    </div>
+
+                </div>
             </section>
 
         </div>
